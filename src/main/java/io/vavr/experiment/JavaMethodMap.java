@@ -28,8 +28,12 @@ public class JavaMethodMap {
             javaMethodMapImplementation.put("remove head", List.class.getMethod("remove", int.class));
             javaMethodMapImplementation.put("remove middle", List.class.getMethod("remove", int.class));
             javaMethodMapImplementation.put("remove tail", List.class.getMethod("remove", int.class));
-            javaMethodMapImplementation.put("get", List.class.getMethod("get", int.class));
-            javaMethodMapImplementation.put("modify", List.class.getMethod("set", int.class, Object.class));
+            javaMethodMapImplementation.put("get head", List.class.getMethod("get",int.class));
+            javaMethodMapImplementation.put("get middle", List.class.getMethod("get", int.class));
+            javaMethodMapImplementation.put("get tail", List.class.getMethod("get", int.class));
+            javaMethodMapImplementation.put("modify head", List.class.getMethod("set", int.class, Object.class));
+            javaMethodMapImplementation.put("modify middle", List.class.getMethod("set", int.class, Object.class));
+            javaMethodMapImplementation.put("modify tail", List.class.getMethod("set", int.class, Object.class));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

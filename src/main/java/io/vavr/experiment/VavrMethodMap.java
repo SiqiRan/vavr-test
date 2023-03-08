@@ -23,8 +23,12 @@ public class VavrMethodMap {
             vavrMethodMapImplementation.put("remove head", List.class.getMethod("tail"));
             vavrMethodMapImplementation.put("remove middle", List.class.getMethod("removeAt", int.class));
             vavrMethodMapImplementation.put("remove tail", List.class.getMethod("dropRight", int.class));
-            vavrMethodMapImplementation.put("get", List.class.getMethod("get", int.class));
-            vavrMethodMapImplementation.put("modify", List.class.getMethod("update", int.class, Object.class));
+            vavrMethodMapImplementation.put("get head", List.class.getMethod("get", int.class));
+            vavrMethodMapImplementation.put("get middle", List.class.getMethod("get", int.class));
+            vavrMethodMapImplementation.put("get tail", List.class.getMethod("get", int.class));
+            vavrMethodMapImplementation.put("modify head", List.class.getMethod("update", int.class, Object.class));
+            vavrMethodMapImplementation.put("modify middle", List.class.getMethod("update", int.class, Object.class));
+            vavrMethodMapImplementation.put("modify tail", List.class.getMethod("update", int.class, Object.class));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
