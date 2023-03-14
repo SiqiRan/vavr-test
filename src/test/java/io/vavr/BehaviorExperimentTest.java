@@ -1,5 +1,6 @@
 package io.vavr;
 
+import io.vavr.collection.List;
 import io.vavr.control.Option;
 import org.junit.jupiter.api.Test;
 
@@ -29,6 +30,13 @@ public class BehaviorExperimentTest {
 
         // result = null
         assertNull(result);
+    }
+
+    @Test
+    public void testRemoveBehaviour(){
+        List<Integer> original = List.of(122,333,789,421,522,61);
+        List<Integer> res = original.removeAt(4);
+        assertEquals(res,List.of(122,333,789,421,61));
     }
 
 }
