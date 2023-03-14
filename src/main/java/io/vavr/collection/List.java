@@ -1202,12 +1202,6 @@ public interface List<T> extends LinearSeq<T> {
         return new Cons<>(element, this);
     }
 
-    @Override
-    default List<T> prependAll(Iterable<? extends T> elements) {
-        Objects.requireNonNull(elements, "elements is null");
-        return isEmpty() ? ofAll(elements) : ofAll(elements).reverse().foldLeft(this, List::prepend);
-    }
-
     /**
      * Pushes a new element on top of this List.
      *
@@ -1317,12 +1311,19 @@ public interface List<T> extends LinearSeq<T> {
         if (index > 0) {
             throw new IndexOutOfBoundsException("removeAt() on Nil");
         }
+        //return init.reverse().appendAll(tail.tail())
         return tail.tail().modifiedPrependAll(init);
     }
 
     default List<T> modifiedPrependAll(Iterable<? extends T> elements) {
         Objects.requireNonNull(elements, "elements is null");
         return isEmpty() ? ofAll(elements) : ofAll(elements).foldLeft(this, List::prepend);
+    }
+
+    @Override
+    default List<T> prependAll(Iterable<? extends T> elements) {
+        Objects.requireNonNull(elements, "elements is null");
+        return isEmpty() ? ofAll(elements) : ofAll(elements).reverse().foldLeft(this, List::prepend);
     }
 
     @Override
