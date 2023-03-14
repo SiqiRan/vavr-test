@@ -1317,7 +1317,12 @@ public interface List<T> extends LinearSeq<T> {
         if (index > 0) {
             throw new IndexOutOfBoundsException("removeAt() on Nil");
         }
-        return init.reverse().appendAll(tail.tail());
+        return tail.tail().modifiedPrependAll(init);
+    }
+
+    default List<T> modifiedPrependAll(Iterable<? extends T> elements) {
+        Objects.requireNonNull(elements, "elements is null");
+        return isEmpty() ? ofAll(elements) : ofAll(elements).foldLeft(this, List::prepend);
     }
 
     @Override
