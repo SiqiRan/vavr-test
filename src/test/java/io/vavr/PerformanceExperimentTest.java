@@ -31,6 +31,10 @@ class PerformanceExperimentTest {
     long TIMES = 10000;
 
     PerformanceExperimentTest() {
+        generatePositions();
+    }
+
+    void generatePositions(){
         modifyHead = new ArrayList<>(Arrays.asList(0, 1));
         modifyMiddle = new ArrayList<>(Arrays.asList((int) (TIMES / 2), 1));
         modifyTail = new ArrayList<>(Arrays.asList((int) (TIMES - 1), 1));
@@ -39,7 +43,6 @@ class PerformanceExperimentTest {
         getTail = new ArrayList<>(Collections.singletonList((int)TIMES - 1));
         headTwoParams = new ArrayList<>(Arrays.asList(0, 1));
         headSingle = new ArrayList<>(Collections.singletonList(0));
-
     }
 
     @BeforeEach
